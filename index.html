@@ -34,7 +34,7 @@
         <div class="col-md-4">
             <div class="withdraw status">
                 <h5>Withdraw</h5>
-                <h2>$00</h2>
+                <h2>$<span id="currentWithdraw">00</span></h2>
             </div>
         </div>
         <div class="col-md-4">
@@ -108,7 +108,11 @@ withdrawBtn.addEventListener("click", function () {
     // const withdrawAmount = document.getElementById("withdrawAmount").value;
     // const withdrawNumber = parseFloat(withdrawAmount);
     const withdrawNumber =  getInputNumber("withdrawAmount");
-    console.log(withdrawNumber);
+    
+    updateSpanText ("currentWithdraw",withdrawNumber);
+    updateSpanText("currentBalance", -1 * withdrawNumber)     // negative korar jonno -1 * jekono songkhake ke gon korle - hobe
+
+    document.getElementById("withdrawAmount").value = ""; 
 })
 
 
